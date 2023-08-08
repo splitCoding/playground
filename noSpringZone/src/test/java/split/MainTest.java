@@ -1,0 +1,5 @@
+package split;
+
+class MainTest {
+
+}
