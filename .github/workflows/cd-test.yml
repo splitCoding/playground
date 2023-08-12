@@ -13,9 +13,9 @@ jobs:
       run: pwd
     - name: Checkout Source Code
       uses: actions/checkout@v2
-      # with:
-      #   submodules: 'true'
-      #   ssh-key: 'git@github.com:splitCoding/submodule.git'
+      with:
+        submodules: 'true'
+        ssh-key: 'git@github.com:splitCoding/submodule.git'
     - name: check branch
       run: git branch -a
     - name: check git log
