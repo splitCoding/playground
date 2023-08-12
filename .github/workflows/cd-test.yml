@@ -12,6 +12,9 @@ jobs:
     
     - name: Checkout Source Code
       uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+        ssh-key: 'git@github.com:Cyma-s/shook-security.git'
     - name: check branch
       run: git branch -a
     - name: check git log
