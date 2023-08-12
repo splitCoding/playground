@@ -9,7 +9,8 @@ jobs:
     runs-on: split-runner
     
     steps:
-    
+    - name: find now
+      run: pwd
     - name: Checkout Source Code
       uses: actions/checkout@v2
       with:
