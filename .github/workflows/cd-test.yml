@@ -12,4 +12,6 @@ jobs:
     
     - name: Checkout Source Code
       uses: actions/checkout@v2
+    - name: check branch
+      run: ls
       
