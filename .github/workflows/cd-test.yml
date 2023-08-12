@@ -13,5 +13,7 @@ jobs:
     - name: Checkout Source Code
       uses: actions/checkout@v2
     - name: check branch
-      run: ls
+      run: git branch -a
+    - name: check git log
+      run: git log --oneline
       
