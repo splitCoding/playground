@@ -1,0 +1,15 @@
+name: cd-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: cd-test
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - name: Checkout Source Code
+      uses: actions/checkout@v2
+      
