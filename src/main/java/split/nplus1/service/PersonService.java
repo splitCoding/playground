@@ -2,6 +2,7 @@ package split.nplus1.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import split.nplus1.domain.Person;
@@ -21,5 +22,10 @@ public class PersonService {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    @Cacheable(value = "getAllPerson")
+    public List<Person> getAllPerson() {
+        return personRepository.findAllWithTeam();
     }
 }

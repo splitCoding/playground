@@ -36,7 +36,6 @@ class PersonServiceTest {
             personRepository.saveAndFlush(new Person(team));
         }
 
-//        teamRepository.deleteById(1L);
         teamRepository.flush();
         entityManager.clear();
     }
