@@ -1,6 +1,7 @@
 package split.nplus1.service;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import split.nplus1.domain.Person;
 import split.nplus1.domain.Team;
@@ -8,6 +9,7 @@ import split.nplus1.repository.PersonRepository;
 import split.nplus1.repository.TeamRepository;
 
 @Service
+@Profile("data")
 public class DataInitializeService {
 
     private final PersonRepository personRepository;
