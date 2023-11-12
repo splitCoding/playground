@@ -2,7 +2,6 @@ spring:
   config:
     activate:
       on-profile: default
-
   jpa:
     show-sql: true
     hibernate:
@@ -10,7 +9,6 @@ spring:
     properties:
       hibernate:
         show-sql: true
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/stock_example
@@ -21,25 +19,3 @@ logging:
   level:
     org.hibernate.orm.jdbc.bind: trace
 
----
-
-spring:
-  config:
-    activate:
-      on-profile: test
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show-sql: true
-
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:shook;MODE=MySQL
-
-logging:
-  level:
-    org.hibernate.orm.jdbc.bind: trace

@@ -1,4 +1,4 @@
-package split.nplus1.config;
+package split.nplus1.cache;
 
 import java.util.List;
 import org.springframework.cache.CacheManager;

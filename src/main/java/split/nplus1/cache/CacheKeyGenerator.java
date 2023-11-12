@@ -1,4 +1,4 @@
-package split.nplus1.config;
+package split.nplus1.cache;
 
 import java.lang.reflect.Method;
 import org.springframework.cache.interceptor.KeyGenerator;

@@ -1,3 +1,26 @@
 spring:
   profiles:
     active: test
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/stock_example
+    username: root
+    password: root
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace

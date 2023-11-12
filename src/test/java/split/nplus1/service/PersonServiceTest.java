@@ -1,7 +1,8 @@
 package split.nplus1.service;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import jakarta.persistence.EntityManager;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,9 @@ class PersonServiceTest {
     @BeforeEach
     void setUp() {
         System.out.println("setUp transaction : " + TransactionSynchronizationManager.getCurrentTransactionName());
-        personService = new PersonService(personRepository);
-
+        personService = new PersonServiceImpl(personRepository);
+        final Team team = teamRepository.saveAndFlush(new Team("team"));
         for (int i = 0; i < 100; i++) {
-            final Team team = teamRepository.saveAndFlush(new Team("team" + i));
             personRepository.saveAndFlush(new Person(team));
         }
 
@@ -43,6 +43,6 @@ class PersonServiceTest {
     @Test
     void validateAllTeamsIn() {
         System.out.println("test transaction : " + TransactionSynchronizationManager.getCurrentTransactionName());
-        Assertions.assertDoesNotThrow(() -> personService.validateAllTeamsIn("team1"));
+        assertDoesNotThrow(() -> personService.validateAllTeamsIn("team"));
     }
 }
