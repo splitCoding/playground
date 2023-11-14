@@ -9,8 +9,11 @@ import split.playground.concurrency.domain.Stock;
 
 public interface StockRepository extends JpaRepository<Stock, Long> {
 
-    //@Lock(LockModeType.PESSIMISTIC_READ) //S-lock
-    @Lock(LockModeType.PESSIMISTIC_WRITE) //X-lock
+    @Lock(LockModeType.PESSIMISTIC_READ) //S-lock
     @Query("SELECT s FROM Stock s WHERE s.id = :id")
     Stock findByIdWithPessimisticRead(@Param("id") final Long id);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE) //X-lock
+    @Query("SELECT s FROM Stock s WHERE s.id = :id")
+    Stock findByIdWithPessimisticWrite(@Param("id") final Long id);
 }
